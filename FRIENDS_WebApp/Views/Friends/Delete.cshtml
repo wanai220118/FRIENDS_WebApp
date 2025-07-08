@@ -1,0 +1,36 @@
+﻿@model FRIENDS_WebApp.Models.Friend
+
+@{
+    ViewData["Title"] = "Delete Friend";
+}
+
+<h1 class="mb-4" style="color: #C200FB;">@ViewData["Title"]</h1>
+
+<div class="card shadow p-4 rounded" style="background-color: #FDF5FF; border-left: 8px solid #C200FB;">
+    <div class="card-body">
+        <h5 class="text-danger mb-3">Are you sure you want to delete this friend?</h5>
+        <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.Phone</dd>
+
+            <dt class="col-sm-3">Birthday</dt>
+            <dd class="col-sm-9">@Model.Birthday.ToString("dd MMM yyyy")</dd>
+        </dl>
+
+        <form asp-action="Delete" class="mt-4 d-flex justify-content-between">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <input type="submit" value="Confirm Delete"
+                       onclick="return confirm('Are you sure you want to delete this friend?');"
+                    class="btn btn-danger me-2" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

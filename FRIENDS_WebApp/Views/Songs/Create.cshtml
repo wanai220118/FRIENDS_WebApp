@@ -1,0 +1,81 @@
+﻿@model FRIENDS_WebApp.Models.Song
+
+@{
+    ViewData["Title"] = "Create New Song";
+}
+
+<h1 class="mb-4" style="color: #FC2F00;">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow border-0">
+            <div class="card-header text-white" style="background-color: #FC2F00;">
+                <h4 class="mb-0">Song Information</h4>
+            </div>
+            <div class="card-body bg-light">
+                <form asp-action="Create" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control" autofocus />
+                        <span asp-validation-for="Title" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Artist" class="form-label"></label>
+                        <input asp-for="Artist" class="form-control" />
+                        <span asp-validation-for="Artist" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Genre" class="form-label"></label>
+                        <select asp-for="Genre" class="form-select">
+                            <option value="">-- Select Genre --</option>
+                            <option>Ballad</option>
+                            <option>Classical</option>
+                            <option>Hip Hop</option>
+                            <option>Indie</option>
+                            <option>Jazz</option>
+                            <option>Kpop</option>
+                            <option>Pop</option>
+                            <option>R&B</option>
+                            <option>Rock</option>
+                            <option>Other</option>
+                        </select>
+                        <span asp-validation-for="Genre" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Duration" class="form-label"></label>
+                        <input asp-for="Duration" class="form-control" placeholder="e.g. 03:45" />
+                        <span asp-validation-for="Duration" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-warning">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-warning {
+        background-color: #FC2F00;
+        border-color: #FC2F00;
+        color: black;
+    }
+
+        .btn-warning:hover {
+            background-color: #FC2F00;
+            border-color: #FC2F00;
+            color: white;
+        }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

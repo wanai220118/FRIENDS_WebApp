@@ -1,0 +1,50 @@
+﻿@model FRIENDS_WebApp.Models.Song
+
+@{
+    ViewData["Title"] = "Song Details";
+}
+
+<h1 class="mb-4" style="color: #FC2F00;">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header text-white" style="background-color: #FC2F00;">
+                <h4 class="mb-0">Song Info</h4>
+            </div>
+            <div class="card-body bg-light">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Title</dt>
+                    <dd class="col-sm-8">@Model.Title</dd>
+
+                    <dt class="col-sm-4">Artist</dt>
+                    <dd class="col-sm-8">@Model.Artist</dd>
+
+                    <dt class="col-sm-4">Genre</dt>
+                    <dd class="col-sm-8">@Model.Genre</dd>
+
+                    <dt class="col-sm-4">Duration</dt>
+                    <dd class="col-sm-8">@Model.Duration</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex justify-content-between bg-white border-0">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-warning {
+        background-color: #FC2F00;
+        border-color: #FC2F00;
+        color: black;
+    }
+
+        .btn-warning:hover {
+            background-color: #FC2F00;
+            border-color: #FC2F00;
+            color: white;
+        }
+</style>

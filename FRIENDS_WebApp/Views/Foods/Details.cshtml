@@ -1,0 +1,41 @@
+﻿@model FRIENDS_WebApp.Models.Food
+
+@{
+    ViewData["Title"] = "Food Details";
+}
+
+<h1 class="mb-4" style="color: #EC7D10;">@ViewData["Title"]</h1>
+
+<div class="card shadow p-4 bg-light">
+    <h4 class="mb-4">Food Information</h4>
+    <dl class="row">
+        <dt class="col-sm-3">Food Name</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.FoodName)</dd>
+
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Category)</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+        <dt class="col-sm-3">Date Added</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DateAdded)</dd>
+    </dl>
+
+    <div class="d-flex justify-content-end mt-4">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning text-white me-2">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+<style>
+    .btn-warning {
+        background-color: #EC7D10;
+        border-color: #EC7D10;
+    }
+
+        .btn-warning:hover {
+            background-color: #FC2F00;
+            border-color: #FC2F00;
+        }
+</style>

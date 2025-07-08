@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FRIENDS_WebApp.Models.Food>
+
+@{
+    ViewData["Title"] = "My Favorite Foods";
+}
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h1 class="text-uppercase" style="color: #EC7D10;">@ViewData["Title"]</h1>
+    <a asp-action="Create" class="btn text-white" style="background-color:#EC7D10;">+ Add New Food</a>
+</div>
+
+<div class="table-responsive shadow rounded">
+    <table class="table table-striped table-bordered align-middle">
+        <thead style="background-color: #EC7D10; color: white;">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().FoodName)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Category)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+                <th>@Html.DisplayNameFor(model => model.First().DateAdded)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FoodName</td>
+                    <td>@item.Category</td>
+                    <td>@item.Description</td>
+                    <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"
+                           class="btn btn-sm text-dark"
+                           style="background-color: #FFE0B3;">Edit</a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id"
+                           class="btn btn-sm text-white"
+                           style="background-color: #F9A03F;">Details</a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id"
+                           class="btn btn-sm text-white"
+                           style="background-color: #A64B00;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .btn-warning {
+        background-color: #EC7D10;
+        border-color: #EC7D10;
+        color: white;
+    }
+
+        .btn-warning:hover {
+            background-color: #FC2F00;
+            border-color: #FC2F00;
+            color: white;
+        }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #fff7e6;
+    }
+
+    .table-striped tbody tr:nth-of-type(even) {
+        background-color: #fff0cc;
+    }
+</style>

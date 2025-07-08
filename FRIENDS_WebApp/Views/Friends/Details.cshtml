@@ -1,0 +1,30 @@
+﻿@model FRIENDS_WebApp.Models.Friend
+
+@{
+    ViewData["Title"] = "Friend Details";
+}
+
+<h1 class="mb-4" style="color: #C200FB;">@ViewData["Title"]</h1>
+
+<div class="card shadow p-4 rounded" style="background-color: #FDF5FF; border-left: 8px solid #C200FB;">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3 fw-semibold">Name</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3 fw-semibold">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3 fw-semibold">Phone</dt>
+            <dd class="col-sm-9">@Model.Phone</dd>
+
+            <dt class="col-sm-3 fw-semibold">Birthday</dt>
+            <dd class="col-sm-9">@Model.Birthday.ToString("dd/MM/yyyy")</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4 d-flex justify-content-end">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn text-white me-2" style="background-color:#C200FB;">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

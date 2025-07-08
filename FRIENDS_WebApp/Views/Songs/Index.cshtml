@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FRIENDS_WebApp.Models.Song>
+
+@{
+    ViewData["Title"] = "My Favorite Songs";
+}
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h1 class="text-uppercase" style="color: #FC2F00;">@ViewData["Title"]</h1>
+    <a asp-action="Create" class="btn text-white" style="background-color:#FC2F00;">+ Add New Song</a>
+</div>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead style="background-color: #FC2F00; color: white;">
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Duration</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var index = 0;
+        }
+        @foreach (var song in Model)
+        {
+            var rowColor = (index % 2 == 0) ? "#fff7e6" : "#ffe8cc";
+            <tr style="background-color: @rowColor;">
+                <td>@song.Title</td>
+                <td>@song.Artist</td>
+                <td>@song.Genre</td>
+                <td>@song.Duration</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@song.Id" 
+                    class="btn btn-warning btn-sm"
+                       style="background-color: #FFD3B6;">Edit</a>
+                    <a asp-action="Details" asp-route-id="@song.Id" 
+                    class="btn btn-info btn-sm text-white"
+                       style="background-color: #FF6B4A;">Details</a>
+                    <a asp-action="Delete" asp-route-id="@song.Id"
+                       class="btn btn-danger btn-sm"
+                              style="background-color: #B7410E;">Delete</a>
+                </td>
+            </tr>
+            index++;
+        }
+    </tbody>
+</table>
+
+<style>
+    .btn-primary {
+        background-color: #FFBC0A;
+        border-color: #FFBC0A;
+    }
+
+        .btn-primary:hover {
+            background-color: #EC7D10;
+            border-color: #EC7D10;
+        }
+</style>

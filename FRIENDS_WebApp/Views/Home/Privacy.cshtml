@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<style>
+    .privacy-container {
+        background: linear-gradient(to right, #FDF5FF, #FFF9EF);
+        border-left: 8px solid #C200FB;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        color: #333;
+    }
+
+    .privacy-heading {
+        color: #C200FB;
+        font-weight: bold;
+    }
+
+    .privacy-text {
+        margin-top: 20px;
+        line-height: 1.7;
+    }
+
+    .highlight {
+        color: #EC0868;
+        font-style: italic;
+    }
+
+    .back-btn {
+        background-color: #FFBC0A;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+    }
+
+        .back-btn:hover {
+            background-color: #EC7D10;
+        }
+</style>
+
+<div class="privacy-container mt-4">
+    <h1 class="privacy-heading">@ViewData["Title"]</h1>
+
+    <p class="privacy-text">
+        We value your <span class="highlight">privacy and trust</span>. Any personal information you provide through the FRIENDS_WebApp—
+        including your name, birthday, favorite food, and photo uploads—is treated with strict confidentiality.
+    </p>
+
+    <p class="privacy-text">
+        Your data is used solely for enhancing your user experience. We do not sell, share, or disclose your personal information to third parties,
+        unless required by law.
+    </p>
+
+    <p class="privacy-text">
+        If you have any concerns about how your data is used, feel free to contact our support team.
+    </p>
+
+    <a asp-controller="Home" asp-action="Index" class="back-btn">Back to Home</a>
+</div>

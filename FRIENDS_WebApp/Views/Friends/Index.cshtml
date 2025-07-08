@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FRIENDS_WebApp.Models.Friend>
+
+@{
+    ViewData["Title"] = "My Friends";
+    var index = 0;
+}
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h1 class="text-uppercase" style="color: #C200FB;">@ViewData["Title"]</h1>
+    <a asp-action="Create" class="btn text-white" style="background-color:#C200FB;">+ Add New Friend</a>
+</div>
+
+<div class="card shadow-sm rounded" style="background-color: #FDF5FF; border-left: 8px solid #C200FB;">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead style="background-color: #C200FB; color: white;">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Phone)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Birthday)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var rowColor = (index % 2 == 0) ? "#FDF5FF" : "#F8E6FF";
+                    <tr style="background-color:@rowColor">
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Birthday.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id"
+                               class="btn btn-sm text-dark"
+                               style="background-color: #E8D5FA;">Edit</a>
+
+                            <a asp-action="Details" asp-route-id="@item.Id"
+                               class="btn btn-sm text-white"
+                               style="background-color: #BA55D3;">Details</a>
+
+                            <a asp-action="Delete" asp-route-id="@item.Id"
+                               class="btn btn-sm text-white"
+                               style="background-color: #7300A3;">Delete</a>
+                        </td>
+
+                    </tr>
+                    index++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

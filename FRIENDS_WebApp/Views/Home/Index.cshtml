@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+@section Styles {
+    <style>
+        .welcome-section {
+            background: linear-gradient(to right, #FDF5FF, #FFF9EF);
+            padding: 60px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #C200FB;
+        }
+
+        .welcome-description {
+            font-size: 1.25rem;
+            color: #444;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .friend-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #EC0868;
+            margin-top: 30px;
+        }
+
+        .explore-btn {
+            background-color: #FFBC0A;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-top: 25px;
+        }
+
+            .explore-btn:hover {
+                background-color: #EC7D10;
+                color: #fff;
+            }
+
+        .friend-icon {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+
+        /* ✅ Fixed media query syntax */
+        @@media (max-width: 576px) {
+            .welcome-title
+
+        {
+            font-size: 2rem;
+        }
+
+        .friend-icon {
+            width: 120px;
+        }
+
+        }
+    </style>
+}
+
+<div class="welcome-section mt-5">
+    <img src="~/hooray.gif" alt="Friends Icon" class="friend-icon" />
+    <h1 class="welcome-title">Welcome to FRIENDS_WebApp</h1>
+    <p class="welcome-description">
+        Your personal space to cherish favorite songs, memorable photos, delicious foods, and the friends who make life wonderful.
+    </p>
+
+    <a asp-controller="Friends" asp-action="Index" class="explore-btn">Start Exploring</a>
+
+    <p class="friend-quote mt-4">
+        “Friendship isn’t about whom you’ve known the longest. It’s about who walked into your life, said ‘I’m here for you’, and proved it.” 💛
+    </p>
+</div>
